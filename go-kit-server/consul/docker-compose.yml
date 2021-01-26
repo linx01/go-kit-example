@@ -1,0 +1,16 @@
+version: '2'
+services:
+  consul:
+    container_name: cs
+    image: consul:latest
+    ports: ["8500:8500"]
+    command: 
+      - /bin/sh 
+      - /usr/local/bin/docker-entrypoint.sh
+      - agent
+      - -server
+      - -bootstrap
+      - -ui
+      - -client
+      - 0.0.0.0
+    # docker run -itd --name=cs -p 8500:8500 consul agent -server -bootstrap -ui -client 0.0.0.0
